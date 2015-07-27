@@ -62,4 +62,5 @@ class Post
     all.select{|post| post.id == id}.first
   end
 
+
 end
