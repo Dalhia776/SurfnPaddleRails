@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title><%= @title || "Zim Rules!" %></title>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One|Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="<%= params[:controller] %>" class="<%= params[:action] %>">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <%= link_to "World Domination Inc", root_path, :class => "navbar-brand" %>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <%= link_to "Home", root_path %>
+                    </li>
+                    <li>
+                        <%= link_to "About", about_path %>
+                    </li>
+                    <!-- <li>
+                        <a href="post.html">Sample Post</a>
+                    </li> -->
+                    <!-- <li>
+                        <a href="contact.html">Contact</a>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+  <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1><%= @title || "We Love Zim" %></h1>
+                        <hr class="small">
+                        <span class="subheading"><%= @subheading || "A Blog about all things Invader Zim" %></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <%= yield %>
+            </div>
+            <div class="col-md-5">
+              <section id="sidebar">
+                <div >
+                  <img id="profile"><%= image_tag "me_2.jpeg" %></img>
+                    <span id="name">DALLIE HILL</span>
+                <div class= "social">
+                  <ul>
+                    <li><a href="https://twitter.com/">Twitter</a></li>
+                    <li><a href="https://www.facebook.com/">Facebook</a></li>
+                    <li><a href="https://instagram.com/">Instagram</a></li>
+                  </ul>
+
+              </div>
+          </div>
+            <img><%= image_tag "gir_tacos.jpg" %></img>
+
+            <h3>More Gir Goodness</h3>
+              <p> Why can't you just masturbate like the rest of us? Time is what turns kittens into cats. Basically, this is what some of your more famous serial killers' brains look like. Just once I would like to run into a cult of bunny worshippers. You're the Slayer, and we're, like, the Slayerettes! My egg is Jewish. I figure, if I'm responsible for the end of the world, I get to name it. In their resting state, our actives are as innocent and vulnerable as children. So, she's added cussing and hurling about of things to her repertoire. </p>
+
+        </section>
+            </div>
+        </div>
+    </div>
+
+    <% if params[:action] == "show" && params[:controller] == "posts" %>
+      </article>
+    <% end %>
+
+    <hr>
+
+    <!-- Footer -->
+    <section>
+
+        <!-- <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                          <img src="images/zim_world.jpg" />
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div> -->
+    </section>
+  <footer>
+  <div id="posts">
+    <% if params[:action] == "show" && params[:controller] == "posts" %>
+      <article>
+    <% end %>
+    <h4>Most Popular Posts</h4>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div id="zim" class="images">
+              <img><%= image_tag "zim.jpg" %></img>
+              <a href="http://placebacon.net/">THE ALIEN NEXT DOOR</a>
+            </div>
+          </div>
+            <div class="col-md-3">
+        <div id="world" class="images">
+         <img><%= image_tag "zim_world.jpg" %></img>
+          <a href="http://placebacon.net/">WORLD DOMINATION</a></li>
+        </div>
+        </div>
+        <div class="col-md-3">
+        <div id="robot" class="images">
+         <img><%= image_tag "blue_gir.jpg" %></img>
+          <a href="http://placebacon.net/">ROBOTS ARE CUTE</a></li>
+        </div>
+        </div>
+        <div class="col-md-3">
+        <div id="dog" class="images">
+          <img><%= image_tag "gir_multi.jpg" %></img>
+          <a href="http://placebacon.net/">I SAW A SQUIRREL</a></li>
+        </div>
+      </div>
+      </div>
+    </div>
+      <% if params[:action] == "show" && params[:controller] == "posts" %>
+        </article>
+      <% end %>
+  </div>
+      <nav>
+        <ul class="nav">
+          <div id="logo" >
+            <li>The Iron Yard</li>
+          </div>
+            <li><a href="http://placebacon.net/">Zim</a></li>
+            <li><a href="http://placebacon.net/">Gir</a></li>
+            <li><a href="http://placebacon.net/">Dib</a></li>
+            <li><a href="http://placebacon.net/">Gaz</a></li>
+        </ul>
+      </nav>
+  </footer>
+   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+</body>
+
+</html>
