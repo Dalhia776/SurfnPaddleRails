@@ -49,7 +49,7 @@
                         <%= link_to "Home", root_path %>
                     </li>
                     <li>
-                        <%= link_to "About", about_path %>
+                        <%= link_to "About", authors_path %>
                     </li>
                     <!-- <li>
                         <a href="post.html">Sample Post</a>
@@ -71,9 +71,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1><%= @title || "We Love Zim" %></h1>
-                        <hr class="small">
-                        <span class="subheading"><%= @subheading || "A Blog about all things Invader Zim" %></span>
+                      <%= yield :header %>
                     </div>
                 </div>
             </div>
@@ -111,59 +109,6 @@
         </div>
     </div>
 
-    <% if params[:action] == "show" && params[:controller] == "posts" %>
-      </article>
-    <% end %>
-
-    <hr>
-
-    <!-- Footer -->
-    <section>
-
-        <!-- <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
-                        <li>
-
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                          <img src="images/zim_world.jpg" />
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </div> -->
-    </section>
   <footer>
   <div id="posts">
     <% if params[:action] == "show" && params[:controller] == "posts" %>
@@ -171,31 +116,16 @@
     <% end %>
     <h4>Most Popular Posts</h4>
     <div class="container">
-        <div class="row">
+      <div class="row">
+        <% @posts.each do|post|%>
           <div class="col-md-3">
-            <div id="zim" class="images">
-              <img><%= image_tag "zim.jpg" %></img>
-              <a href="http://placebacon.net/">THE ALIEN NEXT DOOR</a>
-            </div>
+            <div class="images">
+              <div class="title"><%= link_to (post.title), post_path(:id => post.id) %></div>
+                <%= link_to image_tag(post.image) %>
+              </div>
           </div>
-            <div class="col-md-3">
-        <div id="world" class="images">
-         <img><%= image_tag "zim_world.jpg" %></img>
-          <a href="http://placebacon.net/">WORLD DOMINATION</a></li>
-        </div>
-        </div>
-        <div class="col-md-3">
-        <div id="robot" class="images">
-         <img><%= image_tag "blue_gir.jpg" %></img>
-          <a href="http://placebacon.net/">ROBOTS ARE CUTE</a></li>
-        </div>
-        </div>
-        <div class="col-md-3">
-        <div id="dog" class="images">
-          <img><%= image_tag "gir_multi.jpg" %></img>
-          <a href="http://placebacon.net/">I SAW A SQUIRREL</a></li>
-        </div>
-      </div>
+          <% end %>
+
       </div>
     </div>
       <% if params[:action] == "show" && params[:controller] == "posts" %>
@@ -216,6 +146,5 @@
   </footer>
    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-</body>
-
+ </body>
 </html>
