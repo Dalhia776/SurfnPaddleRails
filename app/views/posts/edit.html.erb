@@ -1,0 +1,10 @@
+<%= content_for :header do %>
+  <h1>Editing "<%= @post.title %>"</h1>
+    <hr class="small">
+      <span class="subheading">Fixing all your <strong>human</strong> needs</span>
+ <% end %>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @post %> |
+<%= link_to 'Back', posts_path %>
