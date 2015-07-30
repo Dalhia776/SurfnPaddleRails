@@ -119,12 +119,14 @@
       <div class="row">
         <% @posts.each do|post|%>
           <div class="col-md-3">
+
             <div class="images">
               <div class="title"><%= link_to (post.title), post_path(:id => post.id) %></div>
                 <%= link_to image_tag(post.image) %>
               </div>
           </div>
           <% end %>
+
 
       </div>
     </div>
@@ -133,7 +135,7 @@
       <% end %>
   </div>
       <nav>
-        <ul class="nav">
+        <ul class="list-inline">
           <div id="logo" >
             <li>The Iron Yard</li>
           </div>
